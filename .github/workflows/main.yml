@@ -41,10 +41,5 @@ jobs:
             deployments/master/d.yml
           images: |
             nginx:1.14.2
-       
-          strategy: canary
-          action: deploy
-          traffic-split-method: smi
-          percentage: 20
-          baseline-and-canary-replicas: 1
+     
 
