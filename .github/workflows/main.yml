@@ -20,6 +20,16 @@ jobs:
           creds: "${{ secrets.AZURE_CREDENTIALS }}"
           cluster-name: mmm-petstore-aks
           resource-group: dnd-petstore-rg
+          
+      - name: Create Secret
+        uses: Azure/k8s-create-secret@v1.1
+        with:
+          
+          container-registry-url: mmmazurepetstorecr.azurecr.io
+          container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
+          container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          namespace: dev-petstore
+          secret-name: n-secret
       
       - name: Deploy 
         uses: Azure/k8s-deploy@v3.1
