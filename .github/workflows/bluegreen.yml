@@ -1,4 +1,4 @@
-
+#workflow
 name: deploy-aks
 on: [push]
 
