@@ -1,0 +1,47 @@
+name: deploy-aks
+on: [push]
+
+
+jobs:
+  deploy-aks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Git Checkout'
+        uses: actions/checkout@v2
+
+      
+      - uses: azure/setup-kubectl@v2.0
+
+      - name: Set the target AKS cluster
+        uses: Azure/aks-set-context@v1
+        with:
+          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+          cluster-name: mmm-petstore-aks
+          resource-group: dnd-petstore-rg
+          
+      - name: Create Secret
+        uses: Azure/k8s-create-secret@v1.1
+        with:
+          
+          container-registry-url: mmmazurepetstorecr.azurecr.io
+          container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
+          container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          namespace: dev-petstore
+          secret-name: n-secret
+      
+      - name: Deploy 
+        uses: Azure/k8s-deploy@v3.1
+        with:
+          namespace: "dev-petstore"
+          imagepullsecrets: |
+            n-secret
+          manifests: |
+            deployments/master/d.yml
+          images: |
+            nginx:1.14.2
+          strategy: canary
+          action: deploy
+          traffic-split-method: smi
+          percentage: 20
+          baseline-and-canary-replicas: 1
