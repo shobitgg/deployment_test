@@ -44,7 +44,7 @@ jobs:
         sudo apt-get install firefox
     - name: Run pytest verify_framework.py 
       run: |
-        pytest https://github.com/seleniumbase/SeleniumBase/examples/unit_tests/verify_framework.py -v -s --junit-xml=junit/test-results.xml
+        pytest https://github.com/seleniumbase/SeleniumBase/tree/master/examples/unit_tests/verify_framework.py -v -s --junit-xml=junit/test-results.xml
         
     - name: Run pytest test_iframes.py --browser=chrome --xvfb --rs --crumbs
       run: |
