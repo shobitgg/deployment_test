@@ -1,5 +1,5 @@
 name: deploy-aks
-on: [push]
+
 
 
 jobs:
