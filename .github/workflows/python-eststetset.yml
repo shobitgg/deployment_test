@@ -40,8 +40,8 @@ jobs:
         sudo apt-get install firefox
     - name: Run pytest verify_framework.py 
       run: |
-        pip install selenium
-        python -m pytest test/test_file.py -v -s --junit-xml=junit/test-results.xml
+        pip install -r https://github.kyndryl.net/App-MMM-PetstorePOC/petstore-ui-auto-test/requirements.txtx
+        pytest -vv -rA https://github.kyndryl.net/App-MMM-PetstorePOC/petstore-ui-auto-test/tree/main/tests/store/petstore/test_petstore_welcome_page.py
         
     
   
