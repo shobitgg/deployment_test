@@ -42,9 +42,9 @@ jobs:
       run: |
         sudo apt install google-chrome-stable
         sudo apt-get install firefox
-    - name: Run pytest verify_framework.py --browser=chrome --headless
+    - name: Run pytest verify_framework.py 
       run: |
-        pytest https://github.com/seleniumbase/SeleniumBase/examples/unit_tests/verify_framework.py --browser=chrome --headless -v -s --junit-xml=junit/test-results.xml
+        pytest https://github.com/seleniumbase/SeleniumBase/examples/unit_tests/verify_framework.py -v -s --junit-xml=junit/test-results.xml
         
     - name: Run pytest test_iframes.py --browser=chrome --xvfb --rs --crumbs
       run: |
