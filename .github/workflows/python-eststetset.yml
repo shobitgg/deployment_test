@@ -24,6 +24,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install tox tox -gh-actions
     - name: Lint with flake8
       run: |
         pip install flake8
@@ -38,10 +39,16 @@ jobs:
       run: |
         sudo apt install google-chrome-stable
         sudo apt-get install firefox
-    - name: Run pytest verify_framework.py 
+    - name : test with to
       run: |
-        pip install -r https://github.kyndryl.net/App-MMM-PetstorePOC/petstore-ui-auto-test/blob/main/requirements.txt
-        pytest -vv -rA https://github.kyndryl.net/App-MMM-PetstorePOC/petstore-ui-auto-test/tree/main/tests/store/petstore/test_petstore_welcome_page.py
+        tox
+#     - name: Run pytest verify_framework.py 
+#       run: |
+#         pip install -r https://github.kyndryl.net/App-MMM-PetstorePOC/petstore-ui-auto-test/blob/main/requirements.txt
+#         pytest -vv -rA https://github.kyndryl.net/App-MMM-PetstorePOC/petstore-ui-auto-test/tree/main/tests/store/petstore/test_petstore_welcome_page.py
         
     
+    - name: Test with pytest
+      run: |
+        pytest
   
