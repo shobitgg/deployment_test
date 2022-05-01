@@ -94,6 +94,7 @@ jobs:
 
 
 
+
       - name: Install Chrome and Firefox
         run: |
           sudo apt install google-chrome-stable
@@ -101,9 +102,7 @@ jobs:
      
       - name: Test with pytest - 1
         run: |
-          pytest -vv -rA https://github.kyndryl.net/App-MMM-PetstorePOC/petstore-ui-auto-test/tree/main/tests/store/petstore/test_petstore_welcome_page.py
-
-     
+          pytest 
       
 
 
