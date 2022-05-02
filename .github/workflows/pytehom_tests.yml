@@ -69,7 +69,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest 
       
-          python -m pip install -r https://raw.githubusercontent.com/shobitgg/deployment_test_01020304/main/requirements.txt
+          python -m pip install -r #https://github.com/shobitgg/deployment_test_01020304/blob/main/requirements.txt
+          
+          #https://raw.githubusercontent.com/shobitgg/deployment_test_01020304/main/requirements.txt
           
     
       - name: Lint with flake8
