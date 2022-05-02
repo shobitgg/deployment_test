@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
 
       
-      # - uses: azure/setup-kubectl@v2.0
+      - uses: azure/setup-kubectl@v2.0
 
       # - name: Set the target AKS cluster
       #   uses: Azure/aks-set-context@v1
@@ -59,54 +59,7 @@ jobs:
       # #     kubectl get svc -n ${{ env.NAMESPACE }}
       # #     kubectl get vs -n ${{ env.NAMESPACE }}
       
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.8"
-
-      - name: Install dependencies from requirements.txt
-        run: |  
-          python -m pip install --upgrade pip
-          pip install pytest 
-      
-          python -m pip install -r #https://github.com/shobitgg/deployment_test_01020304/blob/main/requirements.txt
-          
-          #https://raw.githubusercontent.com/shobitgg/deployment_test_01020304/main/requirements.txt
-          
-    
-      - name: Lint with flake8
-        run: |
-          pip install flake8
-          # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-
-      - name: Make sure pytest is working
-        run: |
-          echo "def test_1(): pass" > nothing.py
-          pytest nothing.py
-
-
-
-
-
-
-
-
-
-
-      - name: Install Chrome and Firefox
-        run: |
-          sudo apt install google-chrome-stable
-          sudo apt-get install firefox
      
-      - name: Test with pytest - 1
-        run: |
-          pytest 
-      
-
 
 
 
