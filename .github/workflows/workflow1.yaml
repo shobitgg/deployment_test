@@ -5,7 +5,7 @@ on:
     types:
       - completed
 jobs:
-  build:
+  builyd:
     runs-on: ubuntu-lates
     steps:
       - name: Run a one-line script
