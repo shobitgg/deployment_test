@@ -1,6 +1,9 @@
 name: Job1
 on:
-  workflow_call:
+  workflow_run:
+    workflows: [Job2]
+    types:
+      - completed
 jobs:
   build:
     runs-on: ubuntu-lates
