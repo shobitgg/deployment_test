@@ -3,7 +3,7 @@ on:
   workflow_call:
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-lates
     steps:
       - name: Run a one-line script
-    run: echo Job1 Executed!
+        run: echo Job1 Executed!
