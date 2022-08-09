@@ -1,4 +1,4 @@
-name: Job2
+name: MMM App Manager build
 on: [push]
 jobs:
   build:
